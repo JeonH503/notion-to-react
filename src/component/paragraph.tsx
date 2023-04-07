@@ -8,14 +8,25 @@ interface TextProps {
     color?:string
 }
 
-const Text = styled.span<TextProps>`
-    ${props => props.bold && 'font-weight: bold;'}
-    ${props => props.italic && 'font-style: italic;'}
+interface Annotation {
+    annotations:TextProps;
+}
+
+const Text = styled.span<Annotation>`
+    ${props => props.annotations.bold && 'font-weight: bold;'}
+    ${props => props.annotations.italic && 'font-style: italic;'}
+    ${props => props.annotations.color !== 'default' && `color : ${props.annotations.color};`}
     ${
         props => {
-            if(props.strikethrough || props.underline) {
-                // let deco = 
-                // return 
+            if(props.annotations.strikethrough || props.annotations.underline) {
+                let deco = 'text-decoration : ';
+                if(props.annotations.strikethrough)
+                    deco = deco + 'line-through ';
+                
+                if(props.annotations.underline)
+                    deco = deco+'underline';
+
+                return deco+';'
             } else {
                 return ''
             }
@@ -24,16 +35,16 @@ const Text = styled.span<TextProps>`
     
 `
 
-const Block = (texts:any) => {
+const Texts = ({rich_text}:any) => {
     return <>
-        {texts.map((e:any) => <Text>{e.text.content}</Text>)}
+        {rich_text.map((e:any) => <Text annotations={e.annotations}>{e.text.content}</Text>)}
     </>
 }
 
-function paragraph({texts}:any) {
+function paragraph({rich_text}:any) {
     return(
         <div>
-            <Block/>
+            <Texts rich_text={rich_text}/>
         </div>
     )
 }

@@ -1,5 +1,5 @@
-import React from 'react';
-
+// import React from 'react';
+import NotionPost from './NotionPost';
 const blocks = {
   "object": "list",
   "results": [
@@ -123,12 +123,12 @@ const blocks = {
                           "link": null
                       },
                       "annotations": {
-                          "bold": false,
-                          "italic": false,
-                          "strikethrough": false,
-                          "underline": false,
+                          "bold": true,
+                          "italic": true,
+                          "strikethrough": true,
+                          "underline": true,
                           "code": false,
-                          "color": "default"
+                          "color": "red"
                       },
                       "plain_text": "나는 그 동안 DB의 index를 사용하면서 index가 정확히 무엇을 해주는지 알지 못한채 사용해 왔다",
                       "href": null
@@ -1922,6 +1922,7 @@ const blocks = {
 function App() {
   return (
     <div className="App">
+        <NotionPost blocks={blocks.results}/>
     </div>
   );
 }

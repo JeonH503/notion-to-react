@@ -1,21 +1,26 @@
+import { Paragraph,Heading } from "./component";
+
 const filter_block = (block:any) => {
-    switch(block) {
+    switch(block.type) {
         case 'paragraph' :
-            return;
+            return <Paragraph rich_text={block.paragraph.rich_text}/>;
         case 'heading_1' :
-            return;
         case 'heading_2' :
-            return;
         case 'heading_3' :
-            return;
+        case 'heading_4' :
+            return <Heading rich_text={block[block.type].rich_text} size={parseInt(block.type.replace('heading_',''))}/>;
         case 'divider' :
             return;
         
     }
 }
 
-function NotionPost() {
-
+function NotionPost({blocks}:any) {
+    return <>
+        {
+            blocks.map((block: any) => filter_block(block))
+        }
+    </>
 }
 
 export default NotionPost
