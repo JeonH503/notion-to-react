@@ -1,7 +1,7 @@
 import SyntaxHighlighter from 'react-syntax-highlighter'; 
 // import styled from 'styled-components';
 
-function code({language,content}:{content:string,language:string}) {
+function Code({language,content}:{content:string,language:string}) {
     return <div>
         <SyntaxHighlighter language={language}>
             {content}
@@ -9,4 +9,4 @@ function code({language,content}:{content:string,language:string}) {
     </div>
 }
 
-export default code
+export default Code

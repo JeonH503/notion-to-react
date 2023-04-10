@@ -1471,7 +1471,7 @@ const blocks = {
 function App() {
   return (
     <div className="App">
-        <NotionPost blocks={blocks.results}/>
+        <NotionPost blocks={blocks.results} token={'secret_JtdV6RdpsJNiwIs871Lrzkya5Af0hFyXcDoIECGtT96'}/>
     </div>
   );
 }

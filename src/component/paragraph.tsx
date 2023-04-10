@@ -41,7 +41,7 @@ const Texts = ({rich_text}:any) => {
     </>
 }
 
-function paragraph({rich_text}:any) {
+function Paragraph({rich_text}:any) {
     return(
         <div>
             <Texts rich_text={rich_text}/>
@@ -49,4 +49,4 @@ function paragraph({rich_text}:any) {
     )
 }
 
-export default paragraph
+export default Paragraph

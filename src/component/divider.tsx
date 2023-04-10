@@ -6,16 +6,16 @@ const DividerWrap = styled.div`
     justify-content: center;
     height:13px;
 `
-const Divider = styled.div`
+const DividerDiv = styled.div`
     height:1px;
     border-bottom:1px solid black;
     width:100%;
 `
 
-function divider() {
+function Divider() {
     return <DividerWrap>
-        <Divider/>
+        <DividerDiv/>
     </DividerWrap>
 }
 
-export default divider
+export default Divider
