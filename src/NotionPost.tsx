@@ -1,7 +1,7 @@
 import { Paragraph,Heading,Code,Divider,UnOrderedList,Table } from "./component";
 import axios from 'axios';
 
-const filter_block = (block:any) => {
+const filter_block = (block:any,tables:any) => {
     switch(block.type) {
         case 'paragraph' :
             return <Paragraph rich_text={block.paragraph.rich_text}/>;
@@ -17,16 +17,16 @@ const filter_block = (block:any) => {
         case 'bulleted_list_item' :
             return <UnOrderedList rich_text={block.bulleted_list_item.rich_text}/>
         case 'table' :
-            return <Table table={block.table} id={block.id}></Table>   
+            return <Table table={block.table} tables={tables[block.id]} id={block.id}></Table>   
     }
 }
 
-function NotionPost({blocks,token}:any) {
+function NotionPost({blocks,tables}:any) {
     // axios.defaults.headers.common = {"Content-Type": `application/json`,'Authorization': `Bearer ${token}`}
     
     return <>
         {
-            blocks.map((block: any) => filter_block(block))
+            blocks.map((block: any) => filter_block(block,tables))
         }
     </>
 }

@@ -1468,10 +1468,253 @@ const blocks = {
     "block": {}
 }
 
+const tables = {
+    "c0a6e134-f301-459b-90c1-9bb14278dbde":{
+        "object": "list",
+        "results": [
+            {
+                "object": "block",
+                "id": "c5968007-4e70-4f2f-b735-66aa30176f0d",
+                "parent": {
+                    "type": "block_id",
+                    "block_id": "c0a6e134-f301-459b-90c1-9bb14278dbde"
+                },
+                "created_time": "2023-04-05T12:13:00.000Z",
+                "last_edited_time": "2023-04-10T14:24:00.000Z",
+                "created_by": {
+                    "object": "user",
+                    "id": "05339070-605a-4e9e-84f2-486755ae2cae"
+                },
+                "last_edited_by": {
+                    "object": "user",
+                    "id": "05339070-605a-4e9e-84f2-486755ae2cae"
+                },
+                "has_children": false,
+                "archived": false,
+                "type": "table_row",
+                "table_row": {
+                    "cells": [
+                        [
+                            {
+                                "type": "text",
+                                "text": {
+                                    "content": "N",
+                                    "link": null
+                                },
+                                "annotations": {
+                                    "bold": false,
+                                    "italic": false,
+                                    "strikethrough": false,
+                                    "underline": false,
+                                    "code": false,
+                                    "color": "default"
+                                },
+                                "plain_text": "N",
+                                "href": null
+                            }
+                        ],
+                        [
+                            {
+                                "type": "text",
+                                "text": {
+                                    "content": "A",
+                                    "link": null
+                                },
+                                "annotations": {
+                                    "bold": false,
+                                    "italic": false,
+                                    "strikethrough": false,
+                                    "underline": false,
+                                    "code": false,
+                                    "color": "default"
+                                },
+                                "plain_text": "A",
+                                "href": null
+                            }
+                        ],
+                        [
+                            {
+                                "type": "text",
+                                "text": {
+                                    "content": "B",
+                                    "link": null
+                                },
+                                "annotations": {
+                                    "bold": false,
+                                    "italic": false,
+                                    "strikethrough": false,
+                                    "underline": false,
+                                    "code": false,
+                                    "color": "default"
+                                },
+                                "plain_text": "B",
+                                "href": null
+                            }
+                        ],
+                        [
+                            {
+                                "type": "text",
+                                "text": {
+                                    "content": "answer",
+                                    "link": null
+                                },
+                                "annotations": {
+                                    "bold": false,
+                                    "italic": false,
+                                    "strikethrough": false,
+                                    "underline": false,
+                                    "code": false,
+                                    "color": "default"
+                                },
+                                "plain_text": "answer",
+                                "href": null
+                            }
+                        ]
+                    ]
+                }
+            },
+            {
+                "object": "block",
+                "id": "2df73595-19b1-438f-ac03-ffb5c12e5f7a",
+                "parent": {
+                    "type": "block_id",
+                    "block_id": "c0a6e134-f301-459b-90c1-9bb14278dbde"
+                },
+                "created_time": "2023-04-05T12:13:00.000Z",
+                "last_edited_time": "2023-04-05T12:13:00.000Z",
+                "created_by": {
+                    "object": "user",
+                    "id": "05339070-605a-4e9e-84f2-486755ae2cae"
+                },
+                "last_edited_by": {
+                    "object": "user",
+                    "id": "05339070-605a-4e9e-84f2-486755ae2cae"
+                },
+                "has_children": false,
+                "archived": false,
+                "type": "table_row",
+                "table_row": {
+                    "cells": [
+                        [
+                            {
+                                "type": "text",
+                                "text": {
+                                    "content": "8",
+                                    "link": null
+                                },
+                                "annotations": {
+                                    "bold": false,
+                                    "italic": false,
+                                    "strikethrough": false,
+                                    "underline": false,
+                                    "code": false,
+                                    "color": "default"
+                                },
+                                "plain_text": "8",
+                                "href": null
+                            }
+                        ],
+                        [
+                            {
+                                "type": "text",
+                                "text": {
+                                    "content": "4",
+                                    "link": null
+                                },
+                                "annotations": {
+                                    "bold": false,
+                                    "italic": false,
+                                    "strikethrough": false,
+                                    "underline": false,
+                                    "code": false,
+                                    "color": "default"
+                                },
+                                "plain_text": "4",
+                                "href": null
+                            }
+                        ],
+                        [
+                            {
+                                "type": "text",
+                                "text": {
+                                    "content": "7",
+                                    "link": null
+                                },
+                                "annotations": {
+                                    "bold": false,
+                                    "italic": false,
+                                    "strikethrough": false,
+                                    "underline": false,
+                                    "code": false,
+                                    "color": "default"
+                                },
+                                "plain_text": "7",
+                                "href": null
+                            }
+                        ],
+                        [
+                            {
+                                "type": "text",
+                                "text": {
+                                    "content": "3",
+                                    "link": null
+                                },
+                                "annotations": {
+                                    "bold": false,
+                                    "italic": false,
+                                    "strikethrough": false,
+                                    "underline": false,
+                                    "code": false,
+                                    "color": "default"
+                                },
+                                "plain_text": "3",
+                                "href": null
+                            }
+                        ]
+                    ]
+                }
+            },
+            {
+                "object": "block",
+                "id": "bccd3f88-2814-4af1-bcb5-53b3ab8a8dbe",
+                "parent": {
+                    "type": "block_id",
+                    "block_id": "c0a6e134-f301-459b-90c1-9bb14278dbde"
+                },
+                "created_time": "2023-04-10T14:24:00.000Z",
+                "last_edited_time": "2023-04-10T14:24:00.000Z",
+                "created_by": {
+                    "object": "user",
+                    "id": "05339070-605a-4e9e-84f2-486755ae2cae"
+                },
+                "last_edited_by": {
+                    "object": "user",
+                    "id": "05339070-605a-4e9e-84f2-486755ae2cae"
+                },
+                "has_children": false,
+                "archived": false,
+                "type": "table_row",
+                "table_row": {
+                    "cells": [
+                        [],
+                        [],
+                        [],
+                        []
+                    ]
+                }
+            }
+        ],
+        "next_cursor": null,
+        "has_more": false,
+        "type": "block",
+        "block": {}
+    }
+}
+
 function App() {
   return (
     <div className="App">
-        <NotionPost blocks={blocks.results} token={'secret_JtdV6RdpsJNiwIs871Lrzkya5Af0hFyXcDoIECGtT96'}/>
+        <NotionPost blocks={blocks.results} tables={tables} token={'secret_JtdV6RdpsJNiwIs871Lrzkya5Af0hFyXcDoIECGtT96'}/>
     </div>
   );
 }

@@ -2,31 +2,33 @@ import {useEffect, useState} from 'react';
 import styled from "styled-components";
 import axios from 'axios';
 
-interface TableType {
-    table_width:number;
-    has_column_header:boolean;
-    has_row_header:boolean;
+
+function TableData({table_row}:any) {
+    console.log(table_row)
+    return(
+        <>
+            {table_row.cells.map((e:any) => {
+                console.log(e)
+                return <td>{e[0]?.text.content}</td>
+            })}
+            
+        </>
+    )
 }
 
-interface PropTypes {
-    table:TableType;
-    id:string;
-}
-
-function Table({table,id}:PropTypes) {
-    const getTableDatas = async (id:string) => {
-        let result = await axios.get(`https://api.notion.com/v1/blocks/${id}/children`,{headers: {
-            Authorization: `Bearer secret_JtdV6RdpsJNiwIs871Lrzkya5Af0hFyXcDoIECGtT96`
-        }})
-        console.log(result)
-    }
-
-    useEffect(() => {
-        getTableDatas(id)
-    },[])
-
+function Table({tables}:any) {
     return <div>
-
+        <table>
+            <tbody>
+                {
+                    tables.results.map((e:any) => 
+                        <tr>
+                            <TableData table_row={e.table_row}/>
+                        </tr>
+                    )
+                }
+            </tbody>
+        </table>
     </div>
 }
 
