@@ -1,5 +1,4 @@
 import { Paragraph,Heading,Code,Divider,UnOrderedList,Table } from "./component";
-import axios from 'axios';
 
 const filter_block = (block:any,tables:any) => {
     switch(block.type) {
@@ -17,7 +16,7 @@ const filter_block = (block:any,tables:any) => {
         case 'bulleted_list_item' :
             return <UnOrderedList rich_text={block.bulleted_list_item.rich_text}/>
         case 'table' :
-            return <Table table={block.table} tables={tables[block.id]} id={block.id}></Table>   
+            return <Table table_info={block.table} tables={tables[block.id]} id={block.id}></Table>   
     }
 }
 
