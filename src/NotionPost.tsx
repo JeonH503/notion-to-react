@@ -21,8 +21,6 @@ const filter_block = (block:any,tables:any) => {
 }
 
 function NotionPost({blocks,tables}:any) {
-    // axios.defaults.headers.common = {"Content-Type": `application/json`,'Authorization': `Bearer ${token}`}
-    
     return <>
         {
             blocks.map((block: any) => filter_block(block,tables))
