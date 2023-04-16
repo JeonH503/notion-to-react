@@ -8,7 +8,7 @@ const DividerWrap = styled.div`
 `
 const DividerDiv = styled.div`
     height:1px;
-    border-bottom:1px solid black;
+    border-bottom:1px solid rgba(55, 53, 47, 0.16);
     width:100%;
 `
 

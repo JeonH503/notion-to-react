@@ -1,24 +1,8 @@
-import { Paragraph,Heading,Code,Divider,UnOrderedList,Table } from "./component";
-import { Blocks, Block } from "./types/block";
-import { Tables } from "./types/table";
-const filter_block = (block:Block,tables:Tables) => {
-    // switch(block.type) {
-    //     case 'paragraph' :
-    //         return <Paragraph rich_text={block.paragraph.rich_text}/>;
-    //     case 'heading_1' :
-    //     case 'heading_2' :
-    //     case 'heading_3' :
-    //     case 'heading_4' :
-    //         return <Heading rich_text={block[block.type].rich_text} size={parseInt(block.type.replace('heading_',''))}/>;
-    //     case 'divider' :
-    //         return <Divider/>; 
-    //     case 'code' :
-    //         return <Code language={block.code.language} content={block.code.rich_text.length ? block.code.rich_text[0].text.content : ''} />
-    //     case 'bulleted_list_item' :
-    //         return <UnOrderedList rich_text={block.bulleted_list_item.rich_text}/>
-    //     case 'table' :
-    //         return <Table table_info={block.table} tables={tables[block.id]} id={block.id}></Table>   
-    // }
+import { Paragraph,Heading,Code,Divider,UnOrderedList,Table, Bookmark } from "./component";
+import { Block,FirstBlock } from "./types/block";
+const filter_block = (block:Block) => {
+    if(block.type === 'bookmark' && block.bookmark)
+        return <Bookmark url={block.bookmark.url} caption={block.bookmark.caption}/>;
     if(block.type === 'paragraph' && block.paragraph)
         return <Paragraph rich_text={block.paragraph.rich_text}/>;
     else if(block.type === 'heading_1' && block.heading_1)
@@ -27,21 +11,21 @@ const filter_block = (block:Block,tables:Tables) => {
         return <Heading rich_text={block.heading_2.rich_text} size={2}/>;
     else if(block.type === 'heading_3' && block.heading_3)
         return <Heading rich_text={block.heading_3.rich_text} size={3}/>;
-    else if(block.type === 'divider' && block.heading_3)
+    else if(block.type === 'divider' && block.divider)
         return <Divider/>; 
     else if(block.type === 'bulleted_list_item' && block.bulleted_list_item)
         return <UnOrderedList rich_text={block.bulleted_list_item.rich_text}/>
-    else if(block.type === 'code' && block.code)
-        return <Code language={block.code.language} content={block.code.rich_text.length ? block.code.rich_text[0].text.content : ''} />
-    else if(block.type === 'table' && block.table)
-        return <Table table_info={block.table} tables={tables[block.id]} id={block.id}></Table> 
+    // else if(block.type === 'code' && block.code)
+    //     return <Code language={block.code.language} content={block.code.rich_text.length ? block.code.rich_text[0].text.content : ''} />
+    // else if(block.type === 'table' && block.table)
+    //     return <Table table_info={block.table} tables={tables[block.id]} id={block.id}></Table> 
 
 }
 
-function NotionPost({blocks,tables}:{blocks:Blocks, tables:Tables}) {
+function NotionPost({blocks}:{blocks:FirstBlock}) {
     return <>
         {
-            blocks.results.map((block: Block) => filter_block(block,tables))
+            Array.isArray(blocks.results) ? blocks.results.map((block: Block) => filter_block(block)) : null
         }
     </>
 }

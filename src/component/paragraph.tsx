@@ -2,7 +2,7 @@ import { Text } from '../styles';
 
 const Texts = ({rich_text}:any) => {
     return <>
-        {rich_text.map((e:any) => <Text annotations={e.annotations}>{e.text.content}</Text>)}
+        {rich_text.map((e:any) => <Text annotations={e.annotations}>{e.text?.content}</Text>)}
     </>
 }
 
