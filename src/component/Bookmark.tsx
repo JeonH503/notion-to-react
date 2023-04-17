@@ -1,55 +1,53 @@
-import styled from "styled-components"
-import Skeleton from 'react-loading-skeleton'
-import 'react-loading-skeleton/dist/skeleton.css'   
 import { RichText } from "../types/block"
-import {useState, useEffect} from 'react';
-import axios from "axios";
+import { Text,Caption,Anchor } from '../styles';
+import 'katex/dist/katex.min.css';
+import { InlineMath, BlockMath } from 'react-katex';
 
-const BookmarkWrap = styled.div`
-    width:100%;
-    border:1px solid rgba(55, 53, 47, 0.16);
-    display:flex;
-`
+interface Props {
+    caption:RichText[]
+}
+// const BookmarkWrap = styled.div`
+//     width:100%;
+// `
 
-const TextBox = styled.div`
-    margin:5px;
-    width:60%;
-`
-
-const ImgBox = styled.div`
-    width:40%;
-`
-
-interface UrlData {
-    title:string;
-    desc:string;
-    logo:string;
-    img:string;
+const Texts = ({caption}:Props) => {
+    return <Caption>
+        {caption.map((e:RichText) => {
+            if(e.type === 'text') {
+                return e.text.link ? 
+                <Anchor>
+                    <a href={e.text.link.url}>
+                        <Text annotations={e.annotations}>{e.text.content}</Text>
+                    </a>
+                </Anchor> :
+                <Text annotations={e.annotations}>{e.text.content}</Text>
+            } else if(e.type === 'equation') {
+                return <InlineMath math={e.equation.expression}/>
+            } 
+            // else if(e.type === "mention") { 좀더 생각 필요
+                
+            // }
+        })}
+    </Caption>
 }
 
 function Bookmark({caption,url}:{caption:RichText[],url:string}) {
-    const [urlData, setUrlData] = useState({} as UrlData);
-
-    const getUrlData = (url:string) => {
-        axios.get(url).then(res => {
-            console.log(res)
-        })
-    }
-
-    useEffect(() => {
-        getUrlData('https://google.com')
-    })
-
-    return <BookmarkWrap>
-        <TextBox>
-            
-            {/* <Skeleton/>
-            <Skeleton/> */}
-        </TextBox>
-        <ImgBox>
-            {/* <Skeleton/> */}
-        </ImgBox>
-    </BookmarkWrap>
+    return <div>
+        <Anchor>
+            <a href="url">
+                {url}
+            </a>
+        </Anchor>
+        <Texts caption={caption}/>
+        {/* {
+            caption.map((caption:RichText) => {
+                return <Caption annotations={caption.annotations}>
+                    {caption.text.content}
+                </Caption>
+            })
+        } */}
+        
+    </div>
 }
 
 export default Bookmark

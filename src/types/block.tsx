@@ -213,12 +213,14 @@ export interface Annotations {
   color:Color;
 }
 export interface TextRichText extends BaseRichText {
+  type:"text";
   text:{
     content:string;
     link: null | {url:string};
   }
 }
 export interface MentionRichText extends BaseRichText {
+  type:"mention";
   mention:{
     type:"database";
     database: {id:string};
@@ -240,6 +242,7 @@ export interface MentionRichText extends BaseRichText {
   }
 }
 export interface EquationRichText extends BaseRichText {
+  type:"equation";
   equation : {
     expression:string;
   } 

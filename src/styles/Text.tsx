@@ -12,10 +12,15 @@ interface Annotation {
     annotations:TextProps;
 }
 
-const Text = styled.span<Annotation>`
+export default styled.span<Annotation>`
     ${props => props.annotations.bold && 'font-weight: bold;'}
     ${props => props.annotations.italic && 'font-style: italic;'}
-    ${props => props.annotations.color !== 'default' && `color : ${props.annotations.color};`}
+    ${
+        props => props.annotations.color && 
+        props.annotations.color !== 'default' ? 
+        `color : ${props.annotations.color};` : 
+        ""
+    }
     ${
         props => {
             if(props.annotations.strikethrough || props.annotations.underline) {
@@ -35,4 +40,3 @@ const Text = styled.span<Annotation>`
     
 `
 
-export default Text
