@@ -163,7 +163,7 @@ export interface Emoji {
 }
 export interface File {
   type:"file",
-  caption?:RichText[] | [];
+  caption:RichText[] | [];
   file:{
     url:string;
     expiry_time:string;
@@ -171,7 +171,7 @@ export interface File {
 }
 export interface FileExternal {
   type:"external",
-  caption?:RichText[] | [];
+  caption:RichText[] | [];
   external:{
     url:string;
   }

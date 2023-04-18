@@ -1,16 +1,14 @@
-import styled from "styled-components"
-import { Text } from '../styles';
+import { RichText } from "../types/block";
+import Texts from "./Texts";
 
-const List = ({rich_text}:any) => {
-    return <>
-        {rich_text.map((e:any) => <Text annotations={e.annotations}>{e.text.content}</Text>)}
-    </>
+interface Props {
+    rich_text:RichText[]
 }
 
-function UnOrderedList({rich_text}:any) {
+function UnOrderedList({rich_text}:Props) {
     return <div>
         <li>
-            <List rich_text={rich_text}/>
+            <Texts rich_text={rich_text}/>
         </li>
     </div>
 }

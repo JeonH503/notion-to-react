@@ -1,10 +1,10 @@
 import { ReactNode } from "react"
-import { Text } from '../styles';
+import { RichText } from "../types/block";
+import Texts from "./Texts";
 
-const Texts = ({rich_text}:any) => {
-    return <>
-        {rich_text.map((e:any) => <Text annotations={e.annotations}>{e.text.content}</Text>)}
-    </>
+interface Props {
+    rich_text:RichText[]
+    size:number;
 }
 
 const HeadingText = ({size,children}:{children:ReactNode,size:number}) => {
@@ -19,7 +19,7 @@ const HeadingText = ({size,children}:{children:ReactNode,size:number}) => {
     return <>{children}</>
 }
 
-function Heading({rich_text,size}:any) {
+function Heading({rich_text,size}:Props) {
     return(
         <div>
             <HeadingText size={size}>
