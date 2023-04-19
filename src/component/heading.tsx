@@ -5,6 +5,7 @@ import Texts from "./Texts";
 interface Props {
     rich_text:RichText[]
     size:number;
+    color:string;
 }
 
 const HeadingText = ({size,children}:{children:ReactNode,size:number}) => {

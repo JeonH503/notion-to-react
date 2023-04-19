@@ -3,7 +3,8 @@ import 'katex/dist/katex.min.css';
 import Texts from './Texts';
 
 interface Props {
-    rich_text:RichText[]
+    rich_text:RichText[];
+    color:string;
 }
 
 function Paragraph({rich_text}:Props) {

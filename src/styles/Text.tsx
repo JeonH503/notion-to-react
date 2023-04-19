@@ -16,10 +16,16 @@ export default styled.span<Annotation>`
     ${props => props.annotations.bold && 'font-weight: bold;'}
     ${props => props.annotations.italic && 'font-style: italic;'}
     ${
-        props => props.annotations.color && 
-        props.annotations.color !== 'default' ? 
-        `color : ${props.annotations.color};` : 
-        ""
+        (props) => {
+            if(props.annotations.color) {
+                let color = props.annotations.color.split("_");
+                return color.length === 1 ? `color:${color[0]}` :
+                `background:${color[0]}`
+            }
+            
+
+            return ''
+        }
     }
     ${
         props => {

@@ -9,7 +9,7 @@ export default styled.div`
     font-size: 14px;
     line-height: 1.4;
     color: rgba(55, 53, 47, 0.65);
-    padding-top: 6px;
+    // padding-top: 6px;
     padding-bottom: 6px;
     // padding-left: 2px;
     
