@@ -158,7 +158,10 @@ export type Language = "abap"
 | "yaml"
 | "java/c/c++/c#";
 
+export type EmojiTypes = Emoji | File | FileExternal;
+
 export interface Emoji {
+  type:"emoji";
   emoji:string;
 }
 export interface File {

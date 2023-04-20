@@ -650,8 +650,11 @@ const blocks = {
                     }
                 ],
                 "icon": {
-                    "type": "emoji",
-                    "emoji": "💡"
+                    "type": "file",
+                    "file": {
+                        "url": "https://s3.us-west-2.amazonaws.com/secure.notion-static.com/507f8354-3c2c-4d75-bd2d-44b2828a3146/f4b49858d64bbff6e1f3fcfea71762fcbfb2d73adb3e1dc397ad191142775d7e.webp?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20230420%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20230420T133529Z&X-Amz-Expires=3600&X-Amz-Signature=16ec93c6dcfce895566d180516802edc803bd938afb101a831b71f489d90392c&X-Amz-SignedHeaders=host&x-id=GetObject",
+                        "expiry_time": "2023-04-20T14:35:29.723Z"
+                    }
                 },
                 "color": "gray_background"
             }
