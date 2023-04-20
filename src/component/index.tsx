@@ -7,5 +7,5 @@ export {default as Table} from './Table'
 export {default as Bookmark} from './Bookmark'
 export {default as Image} from './Image'
 export {default as Callout} from './Callout'
-export {default as Icon} from './Icon'
+export {default as Video} from './Video'
 

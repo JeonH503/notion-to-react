@@ -1,4 +1,4 @@
-import { Image,Paragraph,Heading,Code,Divider,UnOrderedList,Table, Bookmark, Callout } from "./component";
+import { Image,Paragraph,Heading,Code,Divider,UnOrderedList,Table, Bookmark, Callout, Video } from "./component";
 import { Block,FirstBlock } from "./types/block";
 const filter_block = (block:Block) => {
     if(block.type === 'bookmark' && block.bookmark)
@@ -27,7 +27,13 @@ const filter_block = (block:Block) => {
         return <Code language={block.code.language} rich_text={block.code.rich_text} caption={block.code.caption} />
     else if(block.type === 'callout' && block.callout)
         return <Callout rich_text={block.callout.rich_text} icon={block.callout.icon} color={block.callout.color}/>
-    // else if(block.type === 'table' && block.table)
+    else if (block.type === 'video' && block.video){
+        if(block.video.type === 'file')
+            return <Video type='file' caption={block.video.caption} url={block.video.file.url}/>
+        else if(block.video.type === 'external')
+            return <Video type='external' caption={block.video.caption} url={block.video.external.url}/>
+    }
+        // else if(block.type === 'table' && block.table)
     //     return <Table table_info={block.table} tables={tables[block.id]} id={block.id}></Table> 
 
 }

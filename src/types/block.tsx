@@ -160,6 +160,8 @@ export type Language = "abap"
 
 export type EmojiTypes = Emoji | File | FileExternal;
 
+export type VideoTypes = File | FileExternal;
+
 export interface Emoji {
   type:"emoji";
   emoji:string;
@@ -509,7 +511,7 @@ export interface ToggleBlocks extends BaseBlock {
 
 export interface Video extends BaseBlock {
   type:"video";
-  video:File | FileExternal;
+  video:VideoTypes;
 }
 
 
