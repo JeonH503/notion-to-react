@@ -1,6 +1,14 @@
 import { Image,Paragraph,Heading,Code,Divider,UnOrderedList,Table, Bookmark, Callout, Video } from "./component";
 import { Block,FirstBlock } from "./types/block";
-const filter_block = (block:Block) => {
+
+type Tables = {[key:string]:FirstBlock}
+
+interface Props {
+    blocks:FirstBlock;
+    tables:Tables
+}
+
+const filter_block = (block:Block,tables:Tables) => {
     if(block.type === 'bookmark' && block.bookmark)
         return <Bookmark url={block.bookmark.url} caption={block.bookmark.caption}/>;
     else if(block.type === 'paragraph' && block.paragraph)
@@ -32,16 +40,18 @@ const filter_block = (block:Block) => {
             return <Video type='file' caption={block.video.caption} url={block.video.file.url}/>
         else if(block.video.type === 'external')
             return <Video type='external' caption={block.video.caption} url={block.video.external.url}/>
+    } else if(block.type === 'table' && block.table) {
+        return <Table table_info={block.table} tables={tables[block.id]} />
     }
         // else if(block.type === 'table' && block.table)
     //     return <Table table_info={block.table} tables={tables[block.id]} id={block.id}></Table> 
 
 }
 
-function NotionPost({blocks}:{blocks:FirstBlock}) {
+function NotionPost({blocks,tables}:Props) {
     return <>
         {
-            Array.isArray(blocks.results) ? blocks.results.map((block: Block) => filter_block(block)) : null
+            Array.isArray(blocks.results) ? blocks.results.map((block: Block) => filter_block(block,tables)) : null
         }
     </>
 }

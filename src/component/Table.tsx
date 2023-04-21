@@ -1,12 +1,18 @@
 import styled from "styled-components";
-import { Text } from '../styles';
+import { FirstBlock,TableData,TableRows,TableRow,RichText } from "../types/block";
+import TD from "./TD";
 
 interface TableInfo {
     "has_column_header": boolean;
     "has_row_header": boolean;
 }
 
-const TableTag = styled.table<TableInfo>`
+interface Props {
+    tables:FirstBlock;
+    table_info:TableData
+}
+
+const TableWrap = styled.table<TableInfo>`
     border-collapse: collapse;
     border-spacing: 0;
     ${props => props.has_row_header ? `
@@ -31,29 +37,17 @@ const TableTag = styled.table<TableInfo>`
     }
 `
 
-function TableData({table_row}:any) {
-    return(
-        <>
-            {table_row.cells.map((e:any) => {
-                return <td>{ e[0] ? <Text annotations={e[0].annotations}>{e[0].text.content}</Text> : ''}</td>
-            })}
-        </>
-    )
-}
-
-function Table({tables,table_info}:any) {
+function Table({tables,table_info}:Props) {
     return <div>
-        <TableTag has_column_header={table_info.has_column_header} has_row_header={table_info.has_row_header}>
+        <TableWrap has_column_header={table_info.has_column_header} has_row_header={table_info.has_row_header}>
             <tbody>
                 {
-                    tables.results.map((e:any) => 
-                        <tr>
-                            <TableData table_row={e.table_row}/>
-                        </tr>
+                    Array.isArray(tables.results) && tables.results.map((e:TableRows) => 
+                        <TD table_row={e.table_row}/>
                     )
                 }
             </tbody>
-        </TableTag>
+        </TableWrap>
     </div>
 }
 

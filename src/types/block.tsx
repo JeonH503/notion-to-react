@@ -469,18 +469,22 @@ export interface SyncedBlock extends BaseBlock {
 
 export interface Table extends BaseBlock {
   type:"table";
-  table:{
-    table_width:number;
-    has_column_header:boolean;
-    has_row_header:boolean;
-  }
+  table:TableData
+}
+
+export interface TableData {
+  table_width:number;
+  has_column_header:boolean;
+  has_row_header:boolean;
 }
 
 export interface TableRows extends BaseBlock {
   type:"table_row";
-  table_row:{
-    cells:RichText[];
-  }
+  table_row:TableRow
+}
+
+export interface TableRow {
+  cells:RichText[][];
 }
 
 export interface TableOfContents extends BaseBlock {
