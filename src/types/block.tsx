@@ -451,7 +451,7 @@ export interface PDF extends BaseBlock {
 
 export interface Quote extends BaseBlock {
   type:"quote";
-  quoto:{
+  quote:{
     rich_text:RichText[];
     color:Color;
   }

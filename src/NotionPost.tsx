@@ -1,14 +1,14 @@
-import { Image,Paragraph,Heading,Code,Divider,UnOrderedList,Table, Bookmark, Callout, Video } from "./component";
+import { Image,Paragraph,Heading,Code,Divider,UnOrderedList,Table, Bookmark, Callout, Video, Quote } from "./component";
 import { Block,FirstBlock } from "./types/block";
 
 type Tables = {[key:string]:FirstBlock}
 
 interface Props {
     blocks:FirstBlock;
-    tables:Tables
+    tables?:Tables
 }
 
-const filter_block = (block:Block,tables:Tables) => {
+const filter_block = (block:Block,tables?:Tables) => {
     if(block.type === 'bookmark' && block.bookmark)
         return <Bookmark url={block.bookmark.url} caption={block.bookmark.caption}/>;
     else if(block.type === 'paragraph' && block.paragraph)
@@ -40,12 +40,10 @@ const filter_block = (block:Block,tables:Tables) => {
             return <Video type='file' caption={block.video.caption} url={block.video.file.url}/>
         else if(block.video.type === 'external')
             return <Video type='external' caption={block.video.caption} url={block.video.external.url}/>
-    } else if(block.type === 'table' && block.table) {
+    } else if(tables && block.type === 'table' && block.table) {
         return <Table table_info={block.table} tables={tables[block.id]} />
-    }
-        // else if(block.type === 'table' && block.table)
-    //     return <Table table_info={block.table} tables={tables[block.id]} id={block.id}></Table> 
-
+    } else if(block.type === 'quote' && block.quote)
+        return <Quote rich_text={block.quote.rich_text} color={block.quote.color}/>
 }
 
 function NotionPost({blocks,tables}:Props) {
