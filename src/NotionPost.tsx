@@ -1,4 +1,4 @@
-import { Image,Paragraph,Heading,Code,Divider,UnOrderedList,Table, Bookmark, Callout, Video, Quote } from "./component";
+import { Image,Paragraph,Heading,Code,Divider,UnOrderedList,Table, Bookmark, Callout, Video, Quote,ToDo } from "./component";
 import { Block,FirstBlock } from "./types/block";
 
 type Tables = {[key:string]:FirstBlock}
@@ -44,6 +44,8 @@ const filter_block = (block:Block,tables?:Tables) => {
         return <Table table_info={block.table} tables={tables[block.id]} />
     } else if(block.type === 'quote' && block.quote)
         return <Quote rich_text={block.quote.rich_text} color={block.quote.color}/>
+    else if(block.type === 'to_do' && block.to_do)
+        return <ToDo rich_text={block.to_do.rich_text} color={block.to_do.color} checked={block.to_do.checked}/>
 }
 
 function NotionPost({blocks,tables}:Props) {
