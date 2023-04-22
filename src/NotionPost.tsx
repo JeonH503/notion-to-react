@@ -1,4 +1,4 @@
-import { Image,Paragraph,Heading,Code,Divider,UnOrderedList,Table, Bookmark, Callout, Video, Quote,ToDo } from "./component";
+import { Image,Paragraph,Heading,Code,Divider,UnOrderedList,Table, Bookmark, Callout, Video, Quote,ToDo, Equation } from "./component";
 import { Block,FirstBlock } from "./types/block";
 
 type Tables = {[key:string]:FirstBlock}
@@ -25,27 +25,31 @@ const filter_block = (block:Block,tables?:Tables) => {
         return <UnOrderedList color={block.bulleted_list_item.color} rich_text={block.bulleted_list_item.rich_text}/>
     else if(block.type === 'numbered_list_item' && block.numbered_list_item)
         return <UnOrderedList color={block.numbered_list_item.color} rich_text={block.numbered_list_item.rich_text}/>
+    else if(block.type === 'code' && block.code)
+        return <Code language={block.code.language} rich_text={block.code.rich_text} caption={block.code.caption} />
+    else if(block.type === 'callout' && block.callout)
+        return <Callout rich_text={block.callout.rich_text} icon={block.callout.icon} color={block.callout.color}/>
+    else if(block.type === 'quote' && block.quote)
+        return <Quote rich_text={block.quote.rich_text} color={block.quote.color}/>
+    else if(block.type === 'to_do' && block.to_do)
+        return <ToDo rich_text={block.to_do.rich_text} color={block.to_do.color} checked={block.to_do.checked}/>
+    else if(block.type === 'equation' && block.equation) 
+        return <Equation expression={block.equation.expression} />
     else if(block.type === 'image' && block.image) {
         if(block.image.type === 'file')
             return <Image caption={block.image.caption} url={block.image.file.url}/>
         else if(block.image.type === 'external')
             return <Image caption={block.image.caption} url={block.image.external.url}/>
     }
-    else if(block.type === 'code' && block.code)
-        return <Code language={block.code.language} rich_text={block.code.rich_text} caption={block.code.caption} />
-    else if(block.type === 'callout' && block.callout)
-        return <Callout rich_text={block.callout.rich_text} icon={block.callout.icon} color={block.callout.color}/>
     else if (block.type === 'video' && block.video){
         if(block.video.type === 'file')
             return <Video type='file' caption={block.video.caption} url={block.video.file.url}/>
         else if(block.video.type === 'external')
             return <Video type='external' caption={block.video.caption} url={block.video.external.url}/>
-    } else if(tables && block.type === 'table' && block.table) {
+    }
+    else if(tables && block.type === 'table' && block.table) {
         return <Table table_info={block.table} tables={tables[block.id]} />
-    } else if(block.type === 'quote' && block.quote)
-        return <Quote rich_text={block.quote.rich_text} color={block.quote.color}/>
-    else if(block.type === 'to_do' && block.to_do)
-        return <ToDo rich_text={block.to_do.rich_text} color={block.to_do.color} checked={block.to_do.checked}/>
+    }
 }
 
 function NotionPost({blocks,tables}:Props) {
