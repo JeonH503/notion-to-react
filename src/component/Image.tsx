@@ -2,6 +2,7 @@ import Texts from "./Texts"
 import { Caption } from "../styles"
 import { RichText } from "../types/block"
 import styled from "styled-components"
+import { Block } from '../styles';
 
 const ImageWrap = styled.div`
     & img {
@@ -10,14 +11,14 @@ const ImageWrap = styled.div`
 `
 
 function Image({caption,url}:{caption:RichText[] | [],url:string}) {
-    return <div>
+    return <Block>
         <ImageWrap>
             <img src={url} alt="image"></img>
         </ImageWrap>
         <Caption>
             <Texts rich_text={caption}/>
         </Caption>
-    </div>
+    </Block>
 }
 
 export default Image

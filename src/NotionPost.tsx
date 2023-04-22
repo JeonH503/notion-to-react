@@ -1,12 +1,13 @@
 import { Image,Paragraph,Heading,Code,Divider,UnOrderedList,Table, Bookmark, Callout, Video, Quote,ToDo, Equation } from "./component";
 import { Block,FirstBlock } from "./types/block";
-
+import { GlobalStyle } from "./styles";
 type Tables = {[key:string]:FirstBlock}
 
 interface Props {
     blocks:FirstBlock;
     tables?:Tables
 }
+
 
 const filter_block = (block:Block,tables?:Tables) => {
     if(block.type === 'bookmark' && block.bookmark)
@@ -54,6 +55,7 @@ const filter_block = (block:Block,tables?:Tables) => {
 
 function NotionPost({blocks,tables}:Props) {
     return <>
+        <GlobalStyle/>
         {
             Array.isArray(blocks.results) ? blocks.results.map((block: Block) => filter_block(block,tables)) : null
         }

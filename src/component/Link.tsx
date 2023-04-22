@@ -1,7 +1,8 @@
 import { Text,Anchor } from '../styles';
 import { RichText } from '../types/block';
 import 'katex/dist/katex.min.css';
-import { InlineMath, BlockMath } from 'react-katex';
+import { InlineMath } from 'react-katex';
+import { Block } from '../styles';
 
 interface Props {
     rich_text:RichText[]
@@ -30,9 +31,9 @@ const Texts = ({rich_text}:Props) => {
 
 function Paragraph({rich_text}:Props) {
     return(
-        <div>
+        <Block>
             <Texts rich_text={rich_text}/>
-        </div>
+        </Block>
     )
 }
 

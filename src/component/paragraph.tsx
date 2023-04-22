@@ -1,6 +1,7 @@
 import { RichText } from '../types/block';
 import 'katex/dist/katex.min.css';
 import Texts from './Texts';
+import { Block } from '../styles';
 
 interface Props {
     rich_text:RichText[];
@@ -9,9 +10,9 @@ interface Props {
 
 function Paragraph({rich_text}:Props) {
     return(
-        <div>
+        <Block>
             <Texts rich_text={rich_text}/>
-        </div>
+        </Block>
     )
 }
 

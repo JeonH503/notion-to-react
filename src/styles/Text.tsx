@@ -19,7 +19,7 @@ export default styled.span<Annotation>`
         (props) => {
             if(props.annotations.color) {
                 let color = props.annotations.color.split("_");
-                return color.length === 1 ? `color:${color[0]}` :
+                return color.length === 1 ? `color:var(--${color[0]})` :
                 `background:${color[0]}`
             }
             

@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { FirstBlock,TableData,TableRows,TableRow,RichText } from "../types/block";
 import TD from "./TD";
+import { Block } from '../styles';
 
 interface TableInfo {
     "has_column_header": boolean;
@@ -38,7 +39,7 @@ const TableWrap = styled.table<TableInfo>`
 `
 
 function Table({tables,table_info}:Props) {
-    return <div>
+    return <Block>
         <TableWrap has_column_header={table_info.has_column_header} has_row_header={table_info.has_row_header}>
             <tbody>
                 {
@@ -48,7 +49,7 @@ function Table({tables,table_info}:Props) {
                 }
             </tbody>
         </TableWrap>
-    </div>
+    </Block>
 }
 
 export default Table;

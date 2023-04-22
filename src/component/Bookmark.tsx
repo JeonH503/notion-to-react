@@ -2,11 +2,12 @@ import { RichText } from "../types/block"
 import { Caption,Anchor } from '../styles';
 import 'katex/dist/katex.min.css';
 import Texts from "./Texts";
+import { Block } from '../styles';
 
 function Bookmark({caption,url}:{caption:RichText[],url:string}) {
-    return <div>
+    return <Block>
         <Anchor>
-            <a href="url">
+            <a href={url}>
                 {url}
             </a>
         </Anchor>
@@ -21,7 +22,7 @@ function Bookmark({caption,url}:{caption:RichText[],url:string}) {
             })
         } */}
         
-    </div>
+    </Block>
 }
 
 export default Bookmark

@@ -1,6 +1,7 @@
 import { ReactNode } from "react"
 import { RichText } from "../types/block";
 import Texts from "./Texts";
+import { Block } from '../styles';
 
 interface Props {
     rich_text:RichText[]
@@ -22,11 +23,11 @@ const HeadingText = ({size,children}:{children:ReactNode,size:number}) => {
 
 function Heading({rich_text,size}:Props) {
     return(
-        <div>
+        <Block>
             <HeadingText size={size}>
                 <Texts rich_text={rich_text}/>
             </HeadingText>
-        </div>
+        </Block>
     )
 }
 
