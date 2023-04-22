@@ -1,10 +1,10 @@
 {
   "name": "notion-to-react",
   "description": "The notion-to-react library is a tool that allows you to seamlessly integrate data from the Notion API into your React applications.",
-  "version": "0.0.2",
+  "version": "0.0.4",
   "private": false,
-  "main": "dist/lib/NotionPost.jsx",
-  "types": "dist/lib/NotionPost.d.tsx",
+  "main": "dist/lib/NotionPost.js",
+  "types": "dist/lib/NotionPost.d.ts",
   "browser": "./browser/specific/main.js",
   "keywords": ["react","notion","api","notion-api"],
   "author":"JeonH503",
