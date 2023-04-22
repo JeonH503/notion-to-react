@@ -1,6 +1,6 @@
-import { Image,Paragraph,Heading,Code,Divider,UnOrderedList,Table, Bookmark, Callout, Video, Quote,ToDo, Equation } from "./component";
-import { Block,FirstBlock } from "./types/block";
-import { GlobalStyle } from "./styles";
+import { Image,Paragraph,Heading,Code,Divider,UnOrderedList,Table, Bookmark, Callout, Video, Quote,ToDo, Equation } from "../component";
+import { Block,FirstBlock } from "../types/block";
+import { GlobalStyle } from "../styles";
 type Tables = {[key:string]:FirstBlock}
 
 interface Props {

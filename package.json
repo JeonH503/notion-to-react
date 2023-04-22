@@ -1,7 +1,17 @@
 {
   "name": "notion-to-react",
-  "version": "0.1.0",
-  "private": true,
+  "description": "The notion-to-react library is a tool that allows you to seamlessly integrate data from the Notion API into your React applications.",
+  "version": "0.0.2",
+  "private": false,
+  "main": "dist/lib/NotionPost.jsx",
+  "types": "dist/lib/NotionPost.d.tsx",
+  "browser": "./browser/specific/main.js",
+  "keywords": ["react","notion","api","notion-api"],
+  "author":"JeonH503",
+  "repository" : {
+    "type": "git",
+      "url" : "git://github.com/JeonH503/notion-to-react.git"
+   },
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
@@ -26,7 +36,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "prepare": "mkdir dist && tsc"
   },
   "eslintConfig": {
     "extends": [

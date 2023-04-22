@@ -1,5 +1,5 @@
 // import React from 'react';
-import NotionPost from './NotionPost';
+import NotionPost from './lib/NotionPost';
 const blocks = {
     "object": "list",
     "results": [
