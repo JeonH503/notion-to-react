@@ -28,7 +28,7 @@ const ToDoWrap = styled(Block)`
 
 function ToDo({rich_text,color,checked}:Props) {
     return <ToDoWrap color={color}>
-        <Input checked={checked}/>
+        <Input checked={checked} readOnly/>
         <Texts rich_text={rich_text}/>
     </ToDoWrap>
 }

@@ -13,7 +13,7 @@ const ImageWrap = styled.div`
 function Image({caption,url}:{caption:RichText[] | [],url:string}) {
     return <Block>
         <ImageWrap>
-            <img src={url} alt="image"></img>
+            <img src={url} alt="notion-img"></img>
         </ImageWrap>
         <Caption>
             <Texts rich_text={caption}/>

@@ -10,21 +10,20 @@ interface Props {
 
 const Texts = ({rich_text}:Props) => {
     return <>
-        {rich_text.map((e:RichText) => {
+        {rich_text.map((e:RichText,i) => {
             if(e.type === 'text') {
                 return e.text.link ? 
-                <Anchor>
+                <Anchor key={i}>
                     <a href={e.text.link.url}>
                         <Text annotations={e.annotations}>{e.text.content}</Text>
                     </a>
                 </Anchor> :
-                <Text annotations={e.annotations}>{e.text.content}</Text>
+                <Text key={i} annotations={e.annotations}>{e.text.content}</Text>
             } else if(e.type === 'equation') {
-                return <InlineMath math={e.equation.expression}/>
+                return <InlineMath key={i} math={e.equation.expression}/>
             } 
-            // else if(e.type === "mention") { 좀더 생각 필요
-                
-            // }
+
+            return null;
         })}
     </>
 }

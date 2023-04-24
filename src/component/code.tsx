@@ -22,18 +22,18 @@ const HighlighterWrap = styled.div`
 function Code({rich_text,caption,language}:Props) {
     const [code, setCode] = useState("")
     
-    const joinCodes = () => {
-        let code = ''
-        rich_text.forEach(text => {
-            code = code + text.plain_text
-        })
-
-        setCode(code);
-    }
-
     useEffect(() => {
+        const joinCodes = () => {
+            let code = ''
+            rich_text.forEach(text => {
+                code = code + text.plain_text
+            })
+    
+            setCode(code);
+        }
+
         joinCodes()
-    },[])
+    },[rich_text])
 
     return <Block>
         <HighlighterWrap>

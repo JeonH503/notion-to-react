@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { FirstBlock,TableData,TableRows,TableRow,RichText } from "../types/block";
+import { FirstBlock,TableData,TableRows } from "../types/block";
 import TD from "./TD";
 import { Block } from '../styles';
 
@@ -43,8 +43,8 @@ function Table({tables,table_info}:Props) {
         <TableWrap has_column_header={table_info.has_column_header} has_row_header={table_info.has_row_header}>
             <tbody>
                 {
-                    Array.isArray(tables.results) && tables.results.map((e:TableRows) => 
-                        <TD table_row={e.table_row}/>
+                    Array.isArray(tables.results) && tables.results.map((e:TableRows,i) => 
+                        <TD key={i} table_row={e.table_row}/>
                     )
                 }
             </tbody>
