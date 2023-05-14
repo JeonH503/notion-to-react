@@ -1,5 +1,5 @@
 import styled from "styled-components"
-
+import { Block } from "../styles"
 const DividerWrap = styled.div`
     display:flex;
     align-items: center;
@@ -13,9 +13,11 @@ const DividerDiv = styled.div`
 `
 
 function Divider() {
-    return <DividerWrap>
-        <DividerDiv/>
-    </DividerWrap>
+    return <Block>
+        <DividerWrap>
+            <DividerDiv/>
+        </DividerWrap>
+    </Block>
 }
 
 export default Divider

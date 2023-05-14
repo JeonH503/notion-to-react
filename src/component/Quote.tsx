@@ -12,10 +12,8 @@ interface Props {
 const QuoteWrap = styled(Block)`
     ${(props) => props.color && (props.color.length > 11 || props.color === 'default') 
     ? "border-left: 3px solid black" : "border-left: 3px solid "+props.color};
-    &:before {
-        margin-left:10px;
-        content:"";
-    }
+    padding-left: 10px;
+    padding: 3px 0 3px 10px;
 `
 function Quote({rich_text,color}:Props) {
     return(
